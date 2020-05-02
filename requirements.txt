@@ -1,0 +1,4 @@
+requests==2.23.0
+beautifulsoup4==4.9.0
+pyTelegramBotAPI==3.7.1
+Requests==2.23.0
