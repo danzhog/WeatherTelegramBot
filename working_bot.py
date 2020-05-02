@@ -120,7 +120,8 @@ def send_pic(message):
                'CAACAgIAAxkBAAJbmF6tWmaNnbt4IHSDa3QJH7jA6cpnAAKRAwAC0_GkC804rRUcZ67OGQQ',
                ]
 
-    rain_5_5 = ['CAACAgIAAxkBAAJbml6tWqwVLeQtLRHLHdI_P5p86aORAAKSAwAC0_GkC_L1onaO5_m_GQQ',]
+    rain_5_5 = ['CAACAgIAAxkBAAJbml6tWqwVLeQtLRHLHdI_P5p86aORAAKSAwAC0_GkC_L1onaO5_m_GQQ',
+                ]
 
     sun_6_9 = ['CAACAgIAAxkBAAJbnF6tWtTx5EZ50wPI0NU54zudfv4bAAKTAwAC0_GkC9Ggypcc6CvbGQQ',
                'CAACAgIAAxkBAAJbnl6tWuD3DLoMMnWBYrBVQbca5rPIAAKUAwAC0_GkC3wYi_hQ-Lg_GQQ',
@@ -146,7 +147,7 @@ def send_pic(message):
                  'CAACAgIAAxkBAAJbtl6tXBa_EmPpPoKzd4TNpCBuTM9-AAKgAwAC0_GkC7pyNKmLJAjRGQQ',
                  'CAACAgIAAxkBAAJbuF6tXBmj-fHjQ3wrmQd9Q5FQP1muAAKhAwAC0_GkC7wfIwI05qokGQQ',
                  'CAACAgIAAxkBAAJbu16tXBu36PokxiNQfUdc42BBtzcHAAKiAwAC0_GkC9WDKf-90EvYGQQ',
-                ]
+                 ]
 
     rain_14_16 = ['CAACAgIAAxkBAAJbwl6tXFTVwJrJHN_nKjflboyR_9M3AAKjAwAC0_GkC4EgQUChwgTdGQQ',
                   'CAACAgIAAxkBAAJbxF6tXFY-gT_wzthwILVgs4ULhbhyAAKkAwAC0_GkC_tFL5-Hq-z2GQQ',
