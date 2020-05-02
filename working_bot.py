@@ -2,8 +2,10 @@ import telebot
 import requests
 from bs4 import BeautifulSoup
 import re
+import random
+from settings import token
 
-token = '863427020:AAEdpD31x7DNvvnrTMxBoiGTI88o7cAbbjc'
+
 bot = telebot.TeleBot(token)
 
 
@@ -105,6 +107,105 @@ def handle_weather(message):
                                            f"Ощущается как: {weather[1]} °C\n"
                                            f"{weather[2]}\n"
                                            f"{weather[3]}")
+    send_pic(message)
+
+
+@bot.message_handler()
+def send_pic(message):
+    bot.send_message(message.chat.id, text="Вариант как одеться:")
+
+    sun_5_5 = ['CAACAgIAAxkBAAJbkl6tWlqP3dBUBqeJebqATCuqGUswAAKOAwAC0_GkC_PTMhqVEIaVGQQ',
+               'CAACAgIAAxkBAAJblF6tWmB9Dhc39wq76dGrsVps28f-AAKPAwAC0_GkC1ULNMp-XrubGQQ',
+               'CAACAgIAAxkBAAJbll6tWmM80H_seXSQ5MjpVn14NKmmAAKQAwAC0_GkC0sL4zcDMU7wGQQ',
+               'CAACAgIAAxkBAAJbmF6tWmaNnbt4IHSDa3QJH7jA6cpnAAKRAwAC0_GkC804rRUcZ67OGQQ',
+               ]
+
+    rain_5_5 = ['CAACAgIAAxkBAAJbml6tWqwVLeQtLRHLHdI_P5p86aORAAKSAwAC0_GkC_L1onaO5_m_GQQ',]
+
+    sun_6_9 = ['CAACAgIAAxkBAAJbnF6tWtTx5EZ50wPI0NU54zudfv4bAAKTAwAC0_GkC9Ggypcc6CvbGQQ',
+               'CAACAgIAAxkBAAJbnl6tWuD3DLoMMnWBYrBVQbca5rPIAAKUAwAC0_GkC3wYi_hQ-Lg_GQQ',
+               'CAACAgIAAxkBAAJboF6tWuLcGq99xHfmESjZoYvobJpYAAKVAwAC0_GkC8ROEdFX2XLvGQQ',
+               'CAACAgIAAxkBAAJbol6tWuVEg34vlAbr1m3vfl1DDhYrAAKWAwAC0_GkC9brW2U8UkQQGQQ',
+               ]
+
+    rain_6_9 = ['CAACAgIAAxkBAAJbpF6tWxQI6tPYAAGzSm1OC8Jbv_ykGQAClwMAAtPxpAsPqrB4FnGD0BkE',
+                'CAACAgIAAxkBAAJbpl6tWxeqCm4qaWvj6CGC5iBxyiW8AAKYAwAC0_GkCwgHnUNfEFA_GQQ',
+                ]
+
+    sun_10_13 = ['CAACAgIAAxkBAAJbqF6tW4a6UepyavQDxO8aPsq8p47GAAKZAwAC0_GkC9bLB5oLvErxGQQ',
+                 'CAACAgIAAxkBAAJbql6tW4kYO-R7oTzzvNRMapZkbmmNAAKaAwAC0_GkC7LFHxmGgufGGQQ',
+                 'CAACAgIAAxkBAAJbrF6tW4wYMDW0aUuA1Ruhe_EQA0xVAAKbAwAC0_GkCwxBLGLWQ3UgGQQ',
+                 'CAACAgIAAxkBAAJbrl6tW47yLq45iJkrg_T0aOyZoKsCAAKcAwAC0_GkC5fVnDanOq-gGQQ',
+                 ]
+
+    rain_10_13 = ['CAACAgIAAxkBAAJbsF6tW8CWaRTR2ZlGfKM-27hIVUL4AAKdAwAC0_GkC3KKIapZag_7GQQ',
+                  'CAACAgIAAxkBAAJbsl6tW8J-NgkauyW8-pdeeKf5vvWjAAKeAwAC0_GkCzW09RYuCwXtGQQ',
+                  ]
+
+    sun_14_16 = ['CAACAgIAAxkBAAJbtF6tXBMjDjRdEZkxf60K2gp68oiLAAKfAwAC0_GkCyrCDPacKaRFGQQ',
+                 'CAACAgIAAxkBAAJbtl6tXBa_EmPpPoKzd4TNpCBuTM9-AAKgAwAC0_GkC7pyNKmLJAjRGQQ',
+                 'CAACAgIAAxkBAAJbuF6tXBmj-fHjQ3wrmQd9Q5FQP1muAAKhAwAC0_GkC7wfIwI05qokGQQ',
+                 'CAACAgIAAxkBAAJbu16tXBu36PokxiNQfUdc42BBtzcHAAKiAwAC0_GkC9WDKf-90EvYGQQ',
+                ]
+
+    rain_14_16 = ['CAACAgIAAxkBAAJbwl6tXFTVwJrJHN_nKjflboyR_9M3AAKjAwAC0_GkC4EgQUChwgTdGQQ',
+                  'CAACAgIAAxkBAAJbxF6tXFY-gT_wzthwILVgs4ULhbhyAAKkAwAC0_GkC_tFL5-Hq-z2GQQ',
+                  ]
+
+    sun_17_20 = ['CAACAgIAAxkBAAJbxl6tXISU5-U260U_OPZp26NA14cPAAKlAwAC0_GkC2H0Z-q5cUCfGQQ',
+                 'CAACAgIAAxkBAAJbyF6tXIZOac-3yP8_7Wnj6KVTg2keAAKmAwAC0_GkCy2pbpyH2KTCGQQ',
+                 'CAACAgIAAxkBAAJbyl6tXImAkMJCYVeBE9MJY_nC1I9eAAKnAwAC0_GkC5RmygGjtfZfGQQ',
+                 ]
+
+    rain_17_20 = ['CAACAgIAAxkBAAJbzF6tXM0w7VVXrNBmws96_3C_khTFAAKoAwAC0_GkC3nnU5FYKSb1GQQ',
+                  'CAACAgIAAxkBAAJbzl6tXNDAVrxaLUU74DFyZGvNX_VNAAKpAwAC0_GkC0Xk0iR13OS_GQQ',
+                  ]
+
+    sun_21_35 = ['CAACAgIAAxkBAAJb0F6tXPfnPg9yU7ZkK179epK_p4muAAKqAwAC0_GkC8r7nL1jvsIUGQQ',
+                 'CAACAgIAAxkBAAJb0l6tXPnTQh3Z4HrxdUC8EfHL_-84AAKrAwAC0_GkC62abpmnEeKIGQQ',
+                 'CAACAgIAAxkBAAJb1F6tXPu7rz-P6uKdDVvHIHxTRquNAAKsAwAC0_GkC5BPkZ1Db7ePGQQ',
+                 'CAACAgIAAxkBAAJb1l6tXP4i-ZK7XB5pqYzPTYOtHevMAAKtAwAC0_GkC1iZqlD7QMv3GQQ',
+                 ]
+
+    rain_21_35 = ['CAACAgIAAxkBAAJb2F6tXT20JJSzAk7pa8udVK-_P_ovAAKuAwAC0_GkC_V5w0B7jqoWGQQ',
+                  'CAACAgIAAxkBAAJb2l6tXT-0nQtAQIn5JLZ-0lemXpDfAAKvAwAC0_GkC6oiWSowyXJ1GQQ',
+                  ]
+
+    if int(weather[1]) in range(-5, 6):
+        if 'дождь' in weather[3]:
+            bot.send_sticker(message.chat.id, random.choice(rain_5_5))
+        else:
+            bot.send_sticker(message.chat.id, random.choice(sun_5_5))
+
+    if int(weather[1]) in range(6,10):
+        if 'дождь' in weather[3]:
+            bot.send_sticker(message.chat.id, random.choice(rain_6_9))
+        else:
+            bot.send_sticker(message.chat.id, random.choice(sun_6_9))
+
+    if int(weather[1]) in range(10,14):
+        if 'дождь' in weather[3]:
+            bot.send_sticker(message.chat.id, random.choice(rain_10_13))
+        else:
+            bot.send_sticker(message.chat.id, random.choice(sun_10_13))
+
+    if int(weather[1]) in range(14,17):
+        if 'дождь' in weather[3]:
+            bot.send_sticker(message.chat.id, random.choice(rain_14_16))
+        else:
+            bot.send_sticker(message.chat.id, random.choice(sun_14_16))
+
+    if int(weather[1]) in range(17,21):
+        if 'дождь' in weather[3]:
+            bot.send_sticker(message.chat.id, random.choice(rain_17_20))
+        else:
+            bot.send_sticker(message.chat.id, random.choice(sun_17_20))
+
+    if int(weather[1]) in range(21,36):
+        if 'дождь' in weather[3]:
+            bot.send_sticker(message.chat.id, random.choice(rain_21_35))
+        else:
+            bot.send_sticker(message.chat.id, random.choice(sun_21_35))
 
 
 bot.polling()
