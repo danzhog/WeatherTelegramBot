@@ -198,7 +198,7 @@ def send_pic(message):
                                                    "Не забудь ЗОНТИК!")
         else:
             bot.send_sticker(message.chat.id, random.choice(sun_10_13))
-            bot.send_message(message.chat.id, text="На улице свежо, советую надеть легку куртку и гольф")
+            bot.send_message(message.chat.id, text="На улице свежо, советую надеть легкую куртку и гольф")
 
     if int(weather[1]) in range(14, 17):
         if 'дождь' or 'Дождь' in weather[3]:
