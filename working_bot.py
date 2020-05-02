@@ -172,7 +172,7 @@ def send_pic(message):
                   ]
 
     if int(weather[1]) in range(-5, 6):
-        if 'дождь' in weather[3]:
+        if 'дождь' or 'Дождь' in weather[3]:
             bot.send_sticker(message.chat.id, random.choice(rain_5_5))
             bot.send_message(message.chat.id,
                              text="На улице холодно и мокро, советую надеть теплую куртку с капюшоном и кофту.\n"
@@ -183,7 +183,7 @@ def send_pic(message):
                                                    "Не забудь про шапку!")
 
     if int(weather[1]) in range(6, 10):
-        if 'дождь' in weather[3]:
+        if 'дождь' or 'Дождь' in weather[3]:
             bot.send_sticker(message.chat.id, random.choice(rain_6_9))
             bot.send_message(message.chat.id, text="На улице прохладно и идет дождь, советую надеть куртку и свитшот.\n"
                                                    "Не забудь ЗОНТИК!")
@@ -192,7 +192,7 @@ def send_pic(message):
             bot.send_message(message.chat.id, text="На улице прохладно, советую надеть куртку и свитшот")
 
     if int(weather[1]) in range(10, 14):
-        if 'дождь' in weather[3]:
+        if 'дождь' or 'Дождь' in weather[3]:
             bot.send_sticker(message.chat.id, random.choice(rain_10_13))
             bot.send_message(message.chat.id, text="На улице свежо и идет дождь, советую надеть легку куртку и гольф.\n"
                                                    "Не забудь ЗОНТИК!")
@@ -201,7 +201,7 @@ def send_pic(message):
             bot.send_message(message.chat.id, text="На улице свежо, советую надеть легку куртку и гольф")
 
     if int(weather[1]) in range(14, 17):
-        if 'дождь' in weather[3]:
+        if 'дождь' or 'Дождь' in weather[3]:
             bot.send_sticker(message.chat.id, random.choice(rain_14_16))
             bot.send_message(message.chat.id,
                              text="На улице тепло и идет дождь, надевай худи и прихвати что-нибудь от дождя.\n")
@@ -211,7 +211,7 @@ def send_pic(message):
                              text="На улице тепло, поэтому снимай куртку(если ты не мерзляк) и надевай худи\n")
 
     if int(weather[1]) in range(17, 21):
-        if 'дождь' in weather[3]:
+        if 'дождь' or 'Дождь' in weather[3]:
             bot.send_sticker(message.chat.id, random.choice(rain_17_20))
             bot.send_message(message.chat.id,
                              text="На улице почти жара и идет дождь, майка и легкая джинсовка будет идеально.\n"
@@ -222,7 +222,7 @@ def send_pic(message):
                              text="На улице почти жара, надевай футболку и прихвати легкую накдидку.\n")
 
     if int(weather[1]) in range(21, 36):
-        if 'дождь' in weather[3]:
+        if 'дождь' or 'Дождь' in weather[3]:
             bot.send_sticker(message.chat.id, random.choice(rain_21_35))
             bot.send_message(message.chat.id, text="На улице жара и идет дождь, надевай майку и шорты.\n"
                                                    "и не забудь ЗОНТИК и головной убор!")
